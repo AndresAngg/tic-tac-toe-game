@@ -11,18 +11,41 @@ const STATUS_DISPLAY = document.querySelector('.game-notification'),
     [0, 4, 8],
     [2, 4, 6]
   ],
-  WIN_MESSAGE = () => `${currentPlayer} es el ganador!`,
-  DRAW_MESSAGE = () => `EMPATE`, 
-  CURRENT_PLAYER_TURN = () => `Turno del jugador ${currentPlayer}`
+  WIN_MESSAGE = () => `<b>${nameTurn}</b> es el ganador!`,
+  DRAW_MESSAGE = () => `<b>EMPATE!!</b>`,
+  CURRENT_PLAYER_TURN = () => `Turno de <b>${nameTurn}(${currentPlayer})</b>`
 
 // ==================== VARIABLES ==================== //
+function datos() {
 
-let gameActive = true,
-  currentPlayer = "O"
-  
+}
+
+var player1 = document.getElementById('player1');
+var player2 = document.getElementById('player2');
+var gameActive = true,
+  currentPlayer = "X",
+  nameplayer1 = player1.value,
+  nameplayer2 = player2.value
+nameTurn = nameplayer1;
 
 
 // ==================== FUNCTIONS ==================== //
+function turnos() {
+
+}
+function updateName() {
+  if (player1.value == '' && player2.value == '' || player1.value == '' && player2.value != '' || player1.value != '' && player2.value == '') {
+    document.getElementById('warnn').setAttribute("class", "show")
+  }
+  if (player1.value != '' && player2.value != '') {
+    document.getElementById('warnn').setAttribute("class", "hidden")
+    nameplayer1 = player1.value;
+    nameplayer2 = player2.value;
+    document.getElementById('cont').removeAttribute('hidden');
+    document.getElementById('form').setAttribute('hidden', '')
+    handleUpdateName()
+  }
+}
 
 function main() {
   handleStatusDisplay(CURRENT_PLAYER_TURN())
@@ -37,16 +60,32 @@ function listeners() {
 function handleStatusDisplay(message) {
   STATUS_DISPLAY.innerHTML = message
 }
+function resetNames() {
 
+  document.getElementById('player1').setAttribute("value", "Jugador1")
+  document.getElementById('player2').setAttribute("value", "Jugador2")
+  location.reload();
+}
+function handleUpdateName() {
+  gameActive = true
+  currentPlayer = "X"
+  nameTurn = nameplayer1
+  restartGameState()
+  handleStatusDisplay(CURRENT_PLAYER_TURN())
+  document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "")
+}
 function handleRestartGame() {
   gameActive = true
   currentPlayer = "X"
+  nameTurn = nameplayer1
   restartGameState()
+  resetNames()
   handleStatusDisplay(CURRENT_PLAYER_TURN())
   document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "")
 }
 
 function handleCellClick(clickedCellEvent /** Type Event **/) {
+
   const clickedCell = clickedCellEvent.target
   if (clickedCell.classList.contains('cell')) {
     const clickedCellIndex = Array.from(clickedCell.parentNode.children).indexOf(clickedCell)
@@ -59,24 +98,26 @@ function handleCellClick(clickedCellEvent /** Type Event **/) {
   }
 }
 
-function handleCellPlayed(clickedCell /** object HTML **/, clickedCellIndex) {
-  GAME_STATE[clickedCellIndex] = currentPlayer // Agrega en la posición correspondiente el valor ya sea "X" u "O" en el estado actual del juego
-  clickedCell.innerHTML = currentPlayer // Agrega en el HTML el valor del jugador
+function handleCellPlayed(clickedCell, clickedCellIndex) {
+  GAME_STATE[clickedCellIndex] = currentPlayer
+  clickedCell.innerHTML = currentPlayer 
 }
 
 function handleResultValidation() {
   let roundWon = false
-  for (let i = 0; i < WINNINGS.length; i++) { // Itera cada uno de las posibles combinaciones ganadores
-    const winCondition = WINNINGS[i] // Guarda la combinación por ejemplo: [0, 1, 2]
+  for (let i = 0; i < WINNINGS.length; i++) {
+    const winCondition = WINNINGS[i] 
     let position1 = GAME_STATE[winCondition[0]],
       position2 = GAME_STATE[winCondition[1]],
-      position3 = GAME_STATE[winCondition[2]] // Almacena el valor del estado actual del juego según las posiciones de winCondition
+      position3 = GAME_STATE[winCondition[2]] 
 
     if (position1 === '' || position2 === '' || position3 === '') {
-      continue; // Si hay algún valor vacio nadie ha ganado aún
+      continue; 
     }
     if (position1 === position2 && position2 === position3) {
-      roundWon = true // Si todas las posiciones coinciden entonces, dicho jugador ha ganado la partida
+
+      
+      roundWon = true 
       break
     }
   }
@@ -99,6 +140,13 @@ function handleResultValidation() {
 
 function handlePlayerChange() {
   currentPlayer = currentPlayer === "X" ? "O" : "X"
+  if (currentPlayer == "X") {
+    nameTurn = player1.value
+  }
+  if (currentPlayer == "O") {
+    nameTurn = player2.value
+  }
+
   handleStatusDisplay(CURRENT_PLAYER_TURN())
 }
 

@@ -1,10 +1,10 @@
-*{
-  background: rgb(197, 243, 252);
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Train+One&display=swap');
 .container {
   text-align: center;
 }
-
+.game-notification{
+  font-family: 'Source Code Pro', monospace;
+}
 .game-container {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -22,4 +22,26 @@
   cursor: pointer;
   line-height: 100px;
   font-size: 60px;
+}
+.hidden{
+  display: none;
+}
+.show{
+  display: block;
+  color: red;
+}
+.formu{
+  margin-left: 40%;
+  margin-top: 10%;
+  width: 20%;
+  border-radius: 20px;
+  padding: 10px;
+  font-family: 'Source Code Pro', monospace;
+}
+.container h1{
+  font-family: 'Train One', cursive;
+}
+.formu h1{
+  font-family: 'Train One', cursive;
+  margin-bottom: 5%;
 }

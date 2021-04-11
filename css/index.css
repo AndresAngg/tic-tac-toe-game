@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Train+One&display=swap');
+
 .container {
   text-align: center;
 }
@@ -30,13 +31,31 @@
   display: block;
   color: red;
 }
-.formu{
-  margin-left: 40%;
-  margin-top: 10%;
-  width: 20%;
-  border-radius: 20px;
-  padding: 10px;
+.hola{
+  width: 19px;
+}
+footer {
+  position: relative;
+  margin-top: 105px;
+  height: 40px;
+  padding:5px 0px;
+  clear: both;
+  text-align: center;
+  color: rgb(0, 0, 0);
   font-family: 'Source Code Pro', monospace;
+}
+.formu{
+  margin-left: 600%;
+  margin-top: 20%;
+  padding: 30px;
+  width: 300px;
+}
+@media screen and (max-width: 550px) {
+  .formu{
+    margin-left: 0;
+    padding: 30px;
+    width: 300px;
+  }
 }
 .container h1{
   font-family: 'Train One', cursive;
@@ -44,4 +63,8 @@
 .formu h1{
   font-family: 'Train One', cursive;
   margin-bottom: 5%;
+}
+.cont2{
+  width: 60%;
+  max-width: 100px;
 }

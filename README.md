@@ -1,3 +1,3 @@
 # tic-tac-toe-game
 
-DEMO [tictac](https://tic-tac-js.netlify.app)
+DEMO [tic-tac-JS](https://tic-tac-js.netlify.app)

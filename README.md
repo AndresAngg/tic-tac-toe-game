@@ -1,6 +1,6 @@
 # tic-tac-toe-game
-Javascript
+[![Build Status]
 
-DEMO (tic-tac-js.netlify.app)
+DEMO [Tic-tac-JS](tic-tac-js.netlify.app)
 
 

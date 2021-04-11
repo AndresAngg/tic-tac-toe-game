@@ -1,4 +1,4 @@
-// ==================== CONSTANTS ==================== //
+
 const STATUS_DISPLAY = document.querySelector('.game-notification'),
   GAME_STATE = ["", "", "", "", "", "", "", "", ""],
   WINNINGS = [
@@ -15,7 +15,6 @@ const STATUS_DISPLAY = document.querySelector('.game-notification'),
   DRAW_MESSAGE = () => `<b>EMPATE!!</b>`,
   CURRENT_PLAYER_TURN = () => `Turno de <b>${nameTurn}(${currentPlayer})</b>`
 
-// ==================== VARIABLES ==================== //
 function datos() {
 
 }
@@ -29,7 +28,6 @@ var gameActive = true,
 nameTurn = nameplayer1;
 
 
-// ==================== FUNCTIONS ==================== //
 function turnos() {
 
 }

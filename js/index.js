@@ -1,16 +1,7 @@
 
 const STATUS_DISPLAY = document.querySelector('.game-notification'),
   GAME_STATE = ["", "", "", "", "", "", "", "", ""],
-  WINNINGS = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ],
+  ganar = [[0, 1, 2],[3, 4, 5],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8],[0, 4, 8],[2, 4, 6]],
   WIN_MESSAGE = () => `<b>${nameTurn}</b> es el ganador!`,
   DRAW_MESSAGE = () => `<b>EMPATE!!</b>`,
   CURRENT_PLAYER_TURN = () => `Turno de <b>${nameTurn}(${currentPlayer})</b>`
@@ -103,8 +94,8 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 
 function handleResultValidation() {
   let roundWon = false
-  for (let i = 0; i < WINNINGS.length; i++) {
-    const winCondition = WINNINGS[i] 
+  for (let i = 0; i < ganar.length; i++) {
+    const winCondition = ganar[i] 
     let position1 = GAME_STATE[winCondition[0]],
       position2 = GAME_STATE[winCondition[1]],
       position3 = GAME_STATE[winCondition[2]] 

@@ -12,6 +12,10 @@ function datos() {
 
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
+var p1 = player1.value.split(' ')
+  p1 = p1.join('');
+  var p2 = player2.value.split(' ')
+  p2 = p2.join('');
 var gameActive = true,
   currentPlayer = "X",
   nameplayer1 = player1.value,
@@ -23,7 +27,9 @@ function turnos() {
 
 }
 function updateName() {
-  if (player1.value == '' && player2.value == '' || player1.value == '' && player2.value != '' || player1.value != '' && player2.value == '') {
+  
+  console.log(p1)
+  if (p1 == '' && player2.value == '' || p1 == '' && player2.value != '' || player1.value != '' && player2.value == '') {
     document.getElementById('warnn').setAttribute("class", "show")
   }
   if (player1.value != '' && player2.value != '') {

@@ -46,6 +46,7 @@ footer {
 }
 .formu{
  margin-top: 5%;
+ width: 300px;
 }
 @media screen and (max-width: 550px) {
   .formu{

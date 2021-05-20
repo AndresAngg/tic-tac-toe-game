@@ -5,11 +5,6 @@ const STATUS_DISPLAY = document.querySelector('.game-notification'),
   WIN_MESSAGE = () => `<b>${nameTurn}</b> es el ganador!`,
   DRAW_MESSAGE = () => `<b>EMPATE!!</b>`,
   CURRENT_PLAYER_TURN = () => `Turno de <b>${nameTurn}(${currentPlayer})</b>`
-
-function datos() {
-
-}
-
 var player1 = document.getElementById('player1');
 var player2 = document.getElementById('player2');
 var p1 = player1.value.split(' ')
@@ -23,9 +18,6 @@ var gameActive = true,
 nameTurn = nameplayer1;
 
 
-function turnos() {
-
-}
 function updateName() {
   
   console.log(p1)
